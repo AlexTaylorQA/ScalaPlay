@@ -1,7 +1,6 @@
-@(message: String)
+@(message: String, text: String)
 
-@main("Welcome to Play") {
+@main(message) {
 
-    @play20.welcome(message)
-
+    <p>@Html(text)</p>
 }

@@ -3,9 +3,37 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                             controllers.Application.index
+
+GET     /doRedirect                   controllers.Application.doRedirect
+
+GET     /theDynamic/$dyID<[0-9]+>     controllers.Application.theDynamic(dyID:Int)
+
+GET     /theStatic                    controllers.Application.theStatic(stID:Int = 5)
+
+GET     /theDefault                   controllers.Application.theDefault(deID:Int ?= 1)
+GET     /theDefault/$deID<[0-9]+>     controllers.Application.theDefault(deID:Int)
+
+GET     /theOptional                  controllers.Application.theOptional(opID:Option[String])
+
+GET     /hello/:theName               controllers.Application.hello(theName:String)
+GET     /helloPrintCookie             controllers.Application.helloPrintCookie
+#GET     /helloChangeCookie/$cName<[a-z]+>  controllers.Application.helloChangeCookie(cName:String)
+GET     /helloDiscardCookie           controllers.Application.helloDiscardCookie
+
+GET     /dummy/$dName<[a-z]+>         controllers.Application.dummy(dName:String)
+
+GET     /doubleTry                    controllers.Application.doubleTryOne
+GET     /doubleTry                    controllers.Application.doubleTryTwo
+
+GET     /about                        controllers.Default.redirect(to = "https://www.playframework.com/")
+GET     /orders                       controllers.Default.notFound
+GET     /clients                      controllers.Default.error
+GET     /posts                        controllers.Default.todo
+
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                 controllers.Assets.at(path="/public", file)
 
     
