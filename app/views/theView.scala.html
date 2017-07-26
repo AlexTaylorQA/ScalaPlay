@@ -1,0 +1,75 @@
+@(movies: Seq[movies], form: Form[movies])(implicit messages: Messages)
+
+@main("Movies") {
+
+        <div class="panel-heading">
+            <div class="panel-body" style="border-radius: 25px;
+                background: linear-gradient(red, #FFD700, green);
+                color:#FFFFFF !important;
+                text-shadow: 0 0 10px #FFF;
+                padding: 10px; float:left; position:relative;">
+                <a href="/" style=""><b>Go Back</b></a>
+            </div></div>
+    <br>
+    <br>
+<div>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+    <div class="panel-body" style="border-radius: 25px;
+    background: linear-gradient(red, #FFD700, green);
+    color:#FFFFFF;
+        text-shadow: 0 0 10px #000;
+        padding: 20px;"> <b><u>List of Movies</u></b><br><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Director</th>
+                <th>Starring</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(thisMovie <- movies) {
+                <tr>
+                    <td>@thisMovie.title</td>
+                    <td>@thisMovie.description</td>
+                    <td>@thisMovie.price</td>
+                    <td>@thisMovie.director</td>
+                    <td>@thisMovie.starring</td>
+                    <td>@thisMovie.rating</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    </div>
+    </div>
+    </div>
+</div>
+
+    <hr/>
+
+    @helper.form(routes.Application.toView()) {
+        <div class="panel panel-default" style="width:auto !important; float:left;">
+            <div class="panel-heading">
+                <div class="panel-body" style="color:#FFFFFF;
+                    text-shadow: 0 0 10px #000;
+                    border-radius: 25px;
+                    background: linear-gradient(red, #FFD700, green);
+                    padding: 20px;"><b><u>Add New Movie</u></b><br><br>
+
+        @helper.inputText(form("Title"), 'id -> "SomeID", 'class -> "SomeClass")
+        @helper.inputText(form("Description"))
+        @helper.inputText(form("Price"))
+        @helper.inputText(form("Director"))
+        @helper.inputText(form("Starring"))
+        @helper.inputText(form("Rating"))
+        <div align="center">
+            <button type ="submit" style="color:#000000;"><b>Create Movie</button>
+        </div>
+                </div></div></div>
+    }
+}

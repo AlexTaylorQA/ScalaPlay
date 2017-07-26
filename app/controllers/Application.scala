@@ -1,18 +1,42 @@
 package controllers
 
+import javax.inject.Inject
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api._
 import play.api.mvc._
+import models.movies
 
-class Application extends Controller {
+class Application @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport{
 
   def index = Action {
+    Ok(views.html.index("Test Output", "Welcome to the home page!"))
+  }
+
+  def toView = Action { implicit request: Request[AnyContent] =>
+    val formValidationResult = movies.createMovieForm.bindFromRequest
+    formValidationResult.fold({
+      formWithErrors =>
+        BadRequest(views.html.theView(movies.theMovies, formWithErrors))
+    }, { widget =>
+      movies.theMovies.append(widget)
+      Redirect(routes.Application.listMovies)
+
+    })
+  }
+
+  def listMovies = Action {
+
+    Ok(views.html.theView(movies.theMovies, movies.createMovieForm))
+  }
+
+  def triangle = Action {
     var str = ""
     for(x <- 0 to 100)
       {
         str += (" &nbsp;" * (100 - x)) + "/" + (" &nbsp;" * x * 2) + "\\<br>"
 
       }
-    Ok(views.html.index("Test Output", str))
+    Ok("Test Output\n\n" + str)
   }
 
   def doRedirect = Action {

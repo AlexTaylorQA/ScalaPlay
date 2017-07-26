@@ -5,6 +5,14 @@
 # Home page
 GET     /                             controllers.Application.index
 
+GET     /toView                       controllers.Application.toView
+
+GET     /listMovies                   controllers.Application.listMovies
+
+#GET     /createMovie                  controllers.Application.createMovie
+
+GET     /triangle                     controllers.Application.triangle
+
 GET     /doRedirect                   controllers.Application.doRedirect
 
 GET     /theDynamic/$dyID<[0-9]+>     controllers.Application.theDynamic(dyID:Int)
