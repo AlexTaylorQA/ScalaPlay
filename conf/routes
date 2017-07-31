@@ -9,7 +9,11 @@ GET     /toView                       controllers.Application.toView
 
 GET     /listMovies                   controllers.Application.listMovies
 
-#GET     /createMovie                  controllers.Application.createMovie
+GET     /toEdit/$editID<[0-9]+>       controllers.Application.toEdit(editID:Int)
+
+GET     /doEdit                       controllers.Application.doEdit
+
+GET     /toDel/$dltID<[0-9]+>         controllers.Application.toDel(dltID:Int)
 
 GET     /triangle                     controllers.Application.triangle
 

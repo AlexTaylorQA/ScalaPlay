@@ -1,0 +1,32 @@
+@(movies: Seq[movies], form: Form[movies], movID: Int)(implicit messages: Messages)
+
+@main("Movies") {
+    <div>
+    @helper.form(routes.Application.doEdit) {
+        <div class="panel panel-default" style="width:auto !important;  float:left;">
+            <div class="panel-heading">
+                <div class="panel-body" style="color:#FFFFFF;
+                    text-shadow: 0 0 10px #000;
+
+                    border-radius: 25px;
+                    background: linear-gradient(#cd0000, #e6be00, green);
+                    padding: 20px;"><b><u>Edit Movie</u></b><br><br>
+
+                    <div style="display:none;">
+
+                        @helper.inputText(form("ID"), 'value -> movID))</div>
+                    @helper.inputText(form("Title"), 'value -> movies(movID).title)
+                    @helper.inputText(form("Description"), 'value -> movies(movID).description)
+                    @helper.inputText(form("Price"), 'value -> movies(movID).price)
+                    @helper.inputText(form("Director"), 'value -> movies(movID).director)
+                    @helper.inputText(form("Starring"), 'value -> movies(movID).starring)
+                    @helper.inputText(form("Rating"), 'value -> movies(movID).rating)
+                    <div align="center">
+                        <button type ="submit" style="color:#000000;"><b>Update</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+}
