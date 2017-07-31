@@ -1,0 +1,10 @@
+body{
+    background-color:#FFF;
+}
+input{
+    color:black !important;
+}
+
+dd.info{
+    display:none;
+}

@@ -5,11 +5,36 @@
 <html>
     <head>
         <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+            <!-- Bootstrap Core CSS -->
+        <link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
+
+            <!-- MetisMenu CSS -->
+        <link href="@routes.Assets.at("stylesheets/metisMenu.min.css")" rel="stylesheet">
+
+            <!-- Social Buttons CSS -->
+        <link href="@routes.Assets.at("stylesheets/bootstrap-social.css")" rel="stylesheet">
+
+            <!-- Custom CSS -->
+        <link href="@routes.Assets.at("stylesheets/sb-admin-2.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("stylesheets/text-alter.css")" rel="stylesheet">
+            <!-- Custom Fonts -->
+        <link href="@routes.Assets.at("stylesheets/font-awesome.min.css")" rel="stylesheet" type="text/css">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        @*<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>*@
     </head>
     <body>
         @content
+            <!-- jQuery -->
+        @*<script src="@routes.Assets.at("jquery.min.js")"></script>*@
+
+            @*<!-- Bootstrap Core JavaScript -->*@
+        @*<script src="@routes.Assets.at("stylesheets/bootstrap.min.js")"></script>*@
+
+            @*<!-- Metis Menu Plugin JavaScript -->*@
+        @*<script src="@routes.Assets.at("stylesheets/metisMenu.min.js")"></script>*@
+
+            @*<!-- Custom Theme JavaScript -->*@
+        @*<script src="@routes.Assets.at("stylesheets/sb-admin-2.js")"></script>*@
     </body>
 </html>
